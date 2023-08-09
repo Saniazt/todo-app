@@ -12,14 +12,18 @@ export default function AuthProvider({children}){
 //3:Put some state in the context
    const [isAuthenticated, setAuthenticated] = useState(false)
 
-    const valueToBeShare = {isAuthenticated,login,logout}
+   const [username, setUsername] = useState(null)
+
+    const valueToBeShare = {isAuthenticated,login,logout,username}
 
     function login(username,password){
         if(username==='saniazt' && password==='dummy'){
             setAuthenticated(true)
+            setUsername(username)
             return true
         } else 
             setAuthenticated(false)
+            setUsername(null)
             return false
         
     }
